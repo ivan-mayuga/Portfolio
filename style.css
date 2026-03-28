@@ -1,0 +1,1218 @@
+:root {
+  --bg-color: #1a1a1e;
+  --bg-gradient: linear-gradient(to bottom, #3f3d56 0%, #1f1f1f 100%);
+  --text-primary: #dcd8eb;
+  --text-secondary: #a0a0b0;
+  --white: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Offset for sticky navbars */
+/* If your navbar is fixed to the top, clicking an anchor might hide the section title. 
+   You can fix that by adding scroll-padding-top to the html tag: */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Adjust this to the height of your navbar */
+}
+
+.hero-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.hero-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 7rem; /* Increased from 4rem */
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 4rem;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  width: 100%;
+  max-width: 800px;
+  justify-content: center;
+  
+  /* Puts it at the top of the screen */
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Places it on Layer 10 and blurs the background behind it */
+  z-index: 10; 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+.navbar.hidden {
+  transform: translate(-50%, -150%); /* Slides it up off the screen */
+  opacity: 0;
+  pointer-events: none; /* Stops you from accidentally clicking invisible links */
+}
+
+
+.navbar a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+
+.navbar a:hover {
+  color: var(--white);
+}
+
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+.headline-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.headline-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  line-height: 1;
+}
+
+.row-1 {
+  margin-bottom: 0.5rem;
+}
+
+.main-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -3px;
+  text-transform: uppercase;
+  
+  /* --- NEW STYLES FOR TYPING ANIMATION --- */
+  display: inline-block;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0); /* Hides text initially from the right */
+}
+
+.row-1 .main-text {
+  animation: typingReveal 1.2s steps(11, end) forwards;
+  animation-delay: 0.2s; /* Slight pause before it starts */
+}
+
+/* 2nd Line: "DEVELOPER" (9 characters) */
+.row-2 .main-text {
+  animation: typingReveal 1s steps(9, end) forwards;
+  animation-delay: 1.4s; /* Waits for the first line to finish */
+}
+
+/* The Animation Keyframes */
+@keyframes typingReveal {
+  to {
+    clip-path: inset(0 0 0 0); /* Uncovers the text fully */
+  }
+}
+
+.badge-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge-signature, 
+.badge-outline {
+  font-size: 1.5rem;
+  padding: 0.2rem 2.5rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  min-width: 180px;
+}
+
+.badge-signature {
+  background: var(--white);
+  color: #000;
+  font-family: 'Caveat', cursive;
+}
+
+.badge-outline {
+  background: #1F1F1F;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+}
+
+.circle-outline {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+  background: #1F1F1F;
+  display: inline-block;
+}
+
+.solid-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.glass-overlay {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.overlay-1 { top: -30px; left: 1px; width: 240px; height: 80px; }
+.overlay-2 { bottom: -30px; right: -20px; width: 380px; height: 80px; }
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  font-family: 'Inter', sans-serif;
+  opacity: 0.9;
+}
+
+.btn-resume {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-resume:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bottom-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.contact-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.contact-link:hover {
+  color: var(--white);
+}
+
+.about-section {
+  width: 90vw;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  padding: 20px 0; /* Back to your original clean padding */
+  
+  /* Keep these two so the cards float ABOVE the navbar */
+  position: relative;
+  z-index: 20; 
+}
+.navbar-container {
+  grid-column: 1 / span 3;
+  width: 100%;
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grid-column.col-1 {
+  grid-row: span 2;
+}
+
+.grid-column.col-2, 
+.grid-column.col-3 {
+  align-self: start; 
+}
+
+.navbar-inner {
+  background-color: #cdc1ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px 20px 40px; 
+  border-radius: 0 45px 0 0; 
+  width: 100%; 
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-circles {
+  display: flex;
+  gap: 8px;
+}
+
+.circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.circle-dark {
+  background-color: #43445d;
+}
+
+.circle-black {
+  background-color: #1e1e1e;
+}
+
+.brand-name {
+  font-family: "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #666;
+}
+
+.card {
+  background-color: #cdc1ff;
+  color: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.1); 
+}
+
+.profile-card {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 0 50px 0; 
+  aspect-ratio: 1 / 1;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: top; 
+}
+
+.name-overlay {
+  position: absolute;
+  bottom: 75px;
+  left: 33%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #000;
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-family: "Times New Roman", serif;
+  font-weight: 900;
+  color: #000;
+  white-space: nowrap;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.tag-container {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  gap: 10px;
+  width: 90%;
+  justify-content: center;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #000;
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+  flex: 1;
+  text-align: center;
+}
+
+.about-card {
+  border-radius: 0 0 0 50px; 
+  background-color: #cdc1ff;
+  color: #1a1a1a;
+  padding: 43.6px; 
+}
+
+.about-card h2 {
+  font-family: "Times New Roman", serif;
+  font-size: 38px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.education-philosophy-card {
+  background-color: #cdc1ff;
+  color: #000000;
+  padding: 30px 40px;
+  border-radius: 0 50px 0 0; 
+  display: flex;
+  flex-direction: column;
+  max-width: 400px; 
+  flex: 1; 
+}
+
+.education-philosophy-card h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 0 25px 0;
+  letter-spacing: -1px;
+}
+
+.education-philosophy-card .education-section h2 {
+  font-size: 38px;
+}
+
+.education-philosophy-card .philosophy-section h2 {
+  font-size: 30px;
+}
+
+.year-pill {
+  display: inline-block;
+  border: 1px solid #1a1a1a;
+  border-radius: 20px;
+  padding: 4px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.edu-entry {
+  margin-bottom: 10px;
+}
+
+.school-name {
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+
+.degree-name {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.philosophy-text {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  font-weight: 500;
+}
+
+.philosophy-section h2 {
+  margin-top: 20px;
+}
+
+.software-skills-combined-card {
+  background-color: #cdc1ff;
+  color: #1a1a1a;
+  padding: 50px 40px 80px 40px;
+  border-radius: 0 0 0 50px; 
+  display: flex;
+  flex-direction: column;
+  gap: 80px; 
+  flex: 1;
+}
+
+.software-skills-combined-card h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 38px; 
+  font-weight: 900;
+  margin: 0 0 15px 0; 
+  text-transform: uppercase;
+  letter-spacing: -1px; 
+}
+
+.software-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 20px;
+}
+
+.software-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.software-icon {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.software-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.software-name {
+  font-size: 13px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.progress-bar-container {
+  width: 75px;
+  height: 11px;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #3e3f59;
+  border-radius: 20px;
+}
+
+.decorative-line {
+  width: 20px;
+  height: 1.5px;
+  background-color: #1a1a1a;
+}
+
+.skills-pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.skill-pill {
+  flex-grow: 1;
+  text-align: center;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: fit-content;
+  max-width: calc(50% - 10px);
+}
+
+.skill-pill {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.skill-pill:hover {
+  background-color: #1a1a1a;
+  color: #cdc1ff;
+  transform: translateY(-3px);
+}
+
+.card, .profile-card, .education-philosophy-card, .software-skills-combined-card, .contact-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover, .profile-card:hover, .education-philosophy-card:hover, .software-skills-combined-card:hover, .contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-col {
+  grid-column: 2 / span 2; 
+  align-self: start;
+}
+
+.contact-card {
+  border-radius: 0 50px 0 0; 
+  padding: 30px;
+  background-color: #cdc1ff;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.contact-card h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 38px;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.contact-info-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.contact-item a {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .navbar-container,
+  .grid-column.col-1,
+  .contact-col {
+    grid-column: 1;
+  }
+  
+  .grid-column.col-1 {
+    grid-row: auto;
+  }
+  
+  .education-philosophy-card {
+    max-width: 100%;
+  }
+  
+  .software-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headline-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .navbar {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  
+  .glass-overlay {
+    display: none;
+  }
+  
+  .bottom-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .navbar-inner {
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 0 40px 0 0;
+    padding: 20px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+    font-size: 13px;
+  }
+  
+  .contact-info-wrapper {
+    gap: 30px;
+  }
+}
+
+
+
+
+
+/* =========================================
+   4. SKILLS SECTION
+   ========================================= */
+.skills-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 1; /* Keeps it under the about-section if using the pure CSS scroll trick */
+}
+
+.skills-container {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Styles */
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.skills-header h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.heading-line {
+  width: 40px;
+  height: 2px;
+  background-color: var(--white);
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.skills-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Individual Cards */
+.tech-card {
+  background: rgba(255, 255, 255, 0.03); /* Subtle glass background */
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: default;
+}
+
+.tech-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.tech-card span {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* Hover Effects */
+.tech-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.08); /* Gets slightly brighter on hover */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skills-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .tech-card img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
+
+
+/* =========================================
+   5. PROJECTS SECTION
+   ========================================= */
+.projects-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.projects-container {
+  max-width: 1100px; /* Slightly wider to fit 3 cards comfortably */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Individual Project Card */
+.project-card {
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden; /* Ensures the image doesn't spill out of the rounded corners */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Project Image */
+.project-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* Project Content Area */
+.project-content {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pushes the button to the bottom if text heights vary */
+}
+
+.project-title {
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.project-desc {
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Tech Tags (Outline Style) */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.tech-tag {
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #1a1a1a;
+  border-radius: 50px;
+}
+
+/* View Project Button */
+.btn-view-project {
+  margin-top: auto; /* Aligns buttons to the bottom regardless of text length */
+  background-color: #cdc1ff; /* Uses your main purple color */
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  align-self: flex-start; /* Keeps the button from stretching full width */
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.btn-view-project:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-image {
+    height: 250px; /* Slightly taller images on mobile */
+  }
+}
+
+
+
+/* =========================================
+   6. CONTACT SECTION
+   ========================================= */
+.contact-section {
+  width: 100%;
+  min-height: 80vh; /* Slightly shorter than 100vh to frame the bottom nicely */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Elegant Serif Title */
+.contact-title {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(3.5rem, 8vw, 6rem); /* Scales beautifully on all screens */
+  font-weight: 700;
+  font-style: italic;
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.contact-line {
+  width: 80px;
+  height: 2px;
+  background-color: var(--white);
+  margin: 1.5rem auto 3rem;
+}
+
+/* Email and Phone text */
+.contact-details {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.contact-details a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-details a:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* The Social Media Pill Container */
+.social-pill {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.8rem 2.5rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--glass-bg); /* Mirrors your navbar style */
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  /* Magic trick: turns your black icons white! */
+}
+
+.contact-section .social-icon {
+  filter: invert(1) brightness(2);
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  opacity: 0.7;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 600px) {
+  .contact-details {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .social-pill {
+    gap: 1.5rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+
+
+
+
+/* =========================================
+   7. FOOTER SECTION
+   ========================================= */
+.footer-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* --- Footer Left (Brand) --- */
+.footer-left {
+  flex: 1;
+  max-width: 450px;
+}
+
+.footer-name {
+  font-family: "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+/* Targeted styling for the social pill inside the footer */
+.footer-socials {
+  display: inline-flex; /* Shrinks the pill to fit the icons on one side */
+  align-self: flex-start;
+  padding: 0.6rem 1.8rem;
+}
+
+/* Ensures footer icons turn white on the dark background */
+.footer-socials .social-icon {
+  filter: invert(1) brightness(2);
+}
+
+/* --- Footer Right (Contact) --- */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.footer-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.contact-value {
+  font-size: 1rem;
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a.contact-value:hover {
+  opacity: 0.7;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .footer-left {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-right {
+    align-items: center;
+    text-align: center;
+  }
+}
