@@ -26,14 +26,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Optional: Offset for sticky navbars */
-/* If your navbar is fixed to the top, clicking an anchor might hide the section title. 
-   You can fix that by adding scroll-padding-top to the html tag: */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Adjust this to the height of your navbar */
+  scroll-padding-top: 80px; 
 }
 
 .hero-section {
@@ -53,7 +46,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-top: 7rem; /* Increased from 4rem */
+  padding-top: 7rem; 
 }
 
 .navbar {
@@ -66,14 +59,10 @@ html {
   width: 100%;
   max-width: 800px;
   justify-content: center;
-  
-  /* Puts it at the top of the screen */
   position: fixed;
   top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  
-  /* Places it on Layer 10 and blurs the background behind it */
   z-index: 10; 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -81,9 +70,9 @@ html {
 
 
 .navbar.hidden {
-  transform: translate(-50%, -150%); /* Slides it up off the screen */
+  transform: translate(-50%, -150%); 
   opacity: 0;
-  pointer-events: none; /* Stops you from accidentally clicking invisible links */
+  pointer-events: none; 
 }
 
 
@@ -136,28 +125,24 @@ html {
   color: var(--text-primary);
   letter-spacing: -3px;
   text-transform: uppercase;
-  
-  /* --- NEW STYLES FOR TYPING ANIMATION --- */
   display: inline-block;
   white-space: nowrap;
-  clip-path: inset(0 100% 0 0); /* Hides text initially from the right */
+  clip-path: inset(0 100% 0 0); 
 }
 
 .row-1 .main-text {
   animation: typingReveal 1.2s steps(11, end) forwards;
-  animation-delay: 0.2s; /* Slight pause before it starts */
+  animation-delay: 0.2s; 
 }
 
-/* 2nd Line: "DEVELOPER" (9 characters) */
 .row-2 .main-text {
   animation: typingReveal 1s steps(9, end) forwards;
-  animation-delay: 1.4s; /* Waits for the first line to finish */
+  animation-delay: 1.4s; 
 }
 
-/* The Animation Keyframes */
 @keyframes typingReveal {
   to {
-    clip-path: inset(0 0 0 0); /* Uncovers the text fully */
+    clip-path: inset(0 0 0 0); 
   }
 }
 
@@ -267,9 +252,7 @@ html {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
-  padding: 20px 0; /* Back to your original clean padding */
-  
-  /* Keep these two so the cards float ABOVE the navbar */
+  padding: 20px 0; 
   position: relative;
   z-index: 20; 
 }
@@ -739,13 +722,6 @@ html {
   }
 }
 
-
-
-
-
-/* =========================================
-   4. SKILLS SECTION
-   ========================================= */
 .skills-section {
   width: 100%;
   min-height: 100vh;
@@ -755,7 +731,7 @@ html {
   justify-content: center;
   padding: 6rem 2rem;
   position: relative;
-  z-index: 1; /* Keeps it under the about-section if using the pure CSS scroll trick */
+  z-index: 1; 
 }
 
 .skills-container {
@@ -766,7 +742,6 @@ html {
   align-items: center;
 }
 
-/* Header Styles */
 .skills-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -796,7 +771,6 @@ html {
   margin: 0 auto;
 }
 
-/* Grid Layout */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -804,9 +778,8 @@ html {
   width: 100%;
 }
 
-/* Individual Cards */
 .tech-card {
-  background: rgba(255, 255, 255, 0.03); /* Subtle glass background */
+  background: rgba(255, 255, 255, 0.03); 
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 2.5rem 1rem;
@@ -831,13 +804,11 @@ html {
   color: var(--text-primary);
 }
 
-/* Hover Effects */
 .tech-card:hover {
   transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.08); /* Gets slightly brighter on hover */
+  background: rgba(255, 255, 255, 0.08); 
 }
 
-/* Responsive Design for smaller screens */
 @media (max-width: 768px) {
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -859,12 +830,6 @@ html {
   }
 }
 
-
-
-
-/* =========================================
-   5. PROJECTS SECTION
-   ========================================= */
 .projects-section {
   width: 100%;
   min-height: 100vh;
@@ -878,14 +843,13 @@ html {
 }
 
 .projects-container {
-  max-width: 1100px; /* Slightly wider to fit 3 cards comfortably */
+  max-width: 1100px; 
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -893,11 +857,10 @@ html {
   width: 100%;
 }
 
-/* Individual Project Card */
 .project-card {
   background-color: var(--white);
   border-radius: 20px;
-  overflow: hidden; /* Ensures the image doesn't spill out of the rounded corners */
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -908,7 +871,6 @@ html {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Project Image */
 .project-image {
   width: 100%;
   height: 220px;
@@ -916,12 +878,11 @@ html {
   border-bottom: 1px solid #eaeaea;
 }
 
-/* Project Content Area */
 .project-content {
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Pushes the button to the bottom if text heights vary */
+  flex-grow: 1; 
 }
 
 .project-title {
@@ -939,7 +900,6 @@ html {
   margin-bottom: 1.5rem;
 }
 
-/* Tech Tags (Outline Style) */
 .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -956,17 +916,16 @@ html {
   border-radius: 50px;
 }
 
-/* View Project Button */
 .btn-view-project {
-  margin-top: auto; /* Aligns buttons to the bottom regardless of text length */
-  background-color: #cdc1ff; /* Uses your main purple color */
+  margin-top: auto; 
+  background-color: #cdc1ff; 
   color: #1a1a1a;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
-  align-self: flex-start; /* Keeps the button from stretching full width */
+  align-self: flex-start; 
   transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
@@ -975,7 +934,6 @@ html {
   transform: scale(1.05);
 }
 
-/* Responsive Design for smaller screens */
 @media (max-width: 992px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -987,18 +945,13 @@ html {
     grid-template-columns: 1fr;
   }
   .project-image {
-    height: 250px; /* Slightly taller images on mobile */
+    height: 250px; 
   }
 }
 
-
-
-/* =========================================
-   6. CONTACT SECTION
-   ========================================= */
 .contact-section {
   width: 100%;
-  min-height: 80vh; /* Slightly shorter than 100vh to frame the bottom nicely */
+  min-height: 80vh; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1015,10 +968,9 @@ html {
   text-align: center;
 }
 
-/* Elegant Serif Title */
 .contact-title {
   font-family: "Times New Roman", serif;
-  font-size: clamp(3.5rem, 8vw, 6rem); /* Scales beautifully on all screens */
+  font-size: clamp(3.5rem, 8vw, 6rem); 
   font-weight: 700;
   font-style: italic;
   color: var(--white);
@@ -1033,7 +985,6 @@ html {
   margin: 1.5rem auto 3rem;
 }
 
-/* Email and Phone text */
 .contact-details {
   display: flex;
   gap: 3rem;
@@ -1053,7 +1004,6 @@ html {
   transform: translateY(-2px);
 }
 
-/* The Social Media Pill Container */
 .social-pill {
   display: flex;
   align-items: center;
@@ -1061,7 +1011,7 @@ html {
   padding: 0.8rem 2.5rem;
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  background: var(--glass-bg); /* Mirrors your navbar style */
+  background: var(--glass-bg); 
 }
 
 .social-link {
@@ -1075,7 +1025,6 @@ html {
   width: 22px;
   height: 22px;
   object-fit: contain;
-  /* Magic trick: turns your black icons white! */
 }
 
 .contact-section .social-icon {
@@ -1087,7 +1036,6 @@ html {
   opacity: 0.7;
 }
 
-/* Responsive Design for smaller screens */
 @media (max-width: 600px) {
   .contact-details {
     flex-direction: column;
@@ -1100,13 +1048,6 @@ html {
   }
 }
 
-
-
-
-
-/* =========================================
-   7. FOOTER SECTION
-   ========================================= */
 .footer-section {
   width: 100%;
   padding: 6rem 2rem;
@@ -1123,7 +1064,6 @@ html {
   gap: 4rem;
 }
 
-/* --- Footer Left (Brand) --- */
 .footer-left {
   flex: 1;
   max-width: 450px;
@@ -1144,19 +1084,16 @@ html {
   margin-bottom: 2.5rem;
 }
 
-/* Targeted styling for the social pill inside the footer */
 .footer-socials {
-  display: inline-flex; /* Shrinks the pill to fit the icons on one side */
+  display: inline-flex; 
   align-self: flex-start;
   padding: 0.6rem 1.8rem;
 }
 
-/* Ensures footer icons turn white on the dark background */
 .footer-socials .social-icon {
   filter: invert(1) brightness(2);
 }
 
-/* --- Footer Right (Contact) --- */
 .footer-right {
   display: flex;
   flex-direction: column;
@@ -1196,7 +1133,6 @@ a.contact-value:hover {
   opacity: 0.7;
 }
 
-/* Responsive Design for smaller screens */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
