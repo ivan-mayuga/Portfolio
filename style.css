@@ -1353,8 +1353,21 @@ a.contact-value:hover {
 @media (max-width: 480px) {
   /* Navbar */
   .navbar {
+    /*
+     * On very small screens the navigation links wrap onto two lines
+     * which increases the height of the bar. When the bar is fixed to
+     * the top of the page it will overlap the hero section, so on
+     * mobile we remove the fixed positioning and center the bar using
+     * standard document flow. This allows the hero content to flow
+     * naturally below the navigation.
+     */
+    position: static;
+    left: auto;
+    transform: none;
     gap: 0.6rem;
     padding: 0.7rem 1rem;
+    width: 90%;
+    margin: 0.5rem auto;
   }
 
   .navbar a {
