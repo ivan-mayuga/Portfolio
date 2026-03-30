@@ -1428,18 +1428,33 @@ a.contact-value:hover {
     aspect-ratio: 1 / 1;
   }
 
+  /*
+     On small mobile screens the name overlay and tag container were
+     overlapping because the fixed bottom offsets did not leave
+     enough vertical space once the tags stacked vertically. To
+     remedy this the name overlay is raised further up and the
+     tag container is anchored closer to the bottom. This ensures a
+     larger gap between them, preventing overlap even when the tags
+     wrap onto multiple lines.
+
+     We also constrain the tag container’s width to keep it aligned
+     within the card and allow the tags to fill the available
+     horizontal space.
+  */
   .name-overlay {
     font-size: 10px;
-    bottom: 55px;
+    bottom: 90px; /* Increased distance from bottom for more space */
     white-space: normal;
     text-align: center;
     width: 80%;
     left: 50%;
+    transform: translateX(-50%);
   }
 
   .tag-container {
     width: calc(100% - 1.5rem);
     flex-direction: column;
+    bottom: 15px; /* Lower the tag container to create more separation */
   }
 
   .tag {
