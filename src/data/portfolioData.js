@@ -1,26 +1,26 @@
 import profileImage from "../assets/images/ivan.jpeg";
 import figmaIcon from "../assets/images/figma.png";
 import affinityIcon from "../assets/images/affinity.png";
-import inkscapeIcon from "../assets/images/Inkscape_logo.svg";
-import vscodeIcon from "../assets/images/Visual Studio.svg";
-import facebookIcon from "../assets/images/Facebook.svg";
-import instagramIcon from "../assets/images/Instagram.svg";
-import linkedinIcon from "../assets/images/Linkedin.svg";
-import whatsappIcon from "../assets/images/Whatsapp.svg";
-import emailIcon from "../assets/images/Email.svg";
-import githubIcon from "../assets/images/Github.svg";
-import kafkaPreview from "../assets/images/Kafka1.png";
-import kafkaGif from "../assets/images/Kafka.gif";
-import gotPreview from "../assets/images/GOT.jPG";
-import momentPreview from "../assets/images/Moment of style.jpg";
-import htmlIcon from "../assets/images1/HTML5.svg";
-import cssIcon from "../assets/images1/CSS3.svg";
-import javascriptIcon from "../assets/images1/JavaScript.svg";
-import reactIcon from "../assets/images1/React.svg";
-import tailwindIcon from "../assets/images1/Tailwind CSS.svg";
-import pythonIcon from "../assets/images1/Python.svg";
-import cIcon from "../assets/images1/C.svg";
-import gitIcon from "../assets/images1/Git.svg";
+import inkscapeIcon from "../assets/images/inkscape-logo.svg";
+import vscodeIcon from "../assets/images/visual-studio.svg";
+import facebookIcon from "../assets/images/facebook.svg";
+import instagramIcon from "../assets/images/instagram.svg";
+import linkedinIcon from "../assets/images/linkedin.svg";
+import whatsappIcon from "../assets/images/whatsapp.svg";
+import emailIcon from "../assets/images/email.svg";
+import githubIcon from "../assets/images/github.svg";
+import kafkaPreview from "../assets/images/kafka-1.png";
+import kafkaGif from "../assets/images/kafka.gif";
+import gotPreview from "../assets/images/got.jpg";
+import momentPreview from "../assets/images/moment-of-style.jpg";
+import htmlIcon from "../assets/images1/html5.svg";
+import cssIcon from "../assets/images1/css3.svg";
+import javascriptIcon from "../assets/images1/javascript.svg";
+import reactIcon from "../assets/images1/react.svg";
+import tailwindIcon from "../assets/images1/tailwind-css.svg";
+import pythonIcon from "../assets/images1/python.svg";
+import cIcon from "../assets/images1/c.svg";
+import gitIcon from "../assets/images1/git.svg";
 
 export const navLinks = [
   { id: "home", label: "Home", href: "#home" },
