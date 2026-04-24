@@ -1,0 +1,168 @@
+@keyframes typingReveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.row-1 .main-text {
+  animation: typingReveal 1.2s steps(11, end) 0.2s forwards;
+}
+
+.row-2 .main-text {
+  animation: typingReveal 1s steps(9, end) 1.3s forwards;
+}
+
+.headline-container {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.subtitle {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.btn-resume {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.bottom-info {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar,
+.navbar-link,
+.navbar-mobile-panel,
+.navbar-toggle,
+.btn-resume,
+.contact-link,
+.card,
+.skill-pill,
+.tech-card,
+.project-card,
+.btn-view-project,
+.contact-details a,
+.social-link,
+.contact-value {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: var(--white);
+}
+
+.navbar-link:hover,
+.navbar-link.is-active {
+  transform: translateY(-1px);
+}
+
+.navbar-toggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.navbar-toggle.is-active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.is-active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.btn-resume:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.contact-link:hover,
+.contact-details a:hover,
+a.contact-value:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.card:hover,
+.tech-card:hover,
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+}
+
+.skill-pill:hover {
+  background-color: #1a1a1a;
+  color: var(--surface);
+  transform: translateY(-3px);
+}
+
+.project-card:hover .btn-view-project,
+.btn-view-project:hover {
+  opacity: 0.88;
+  transform: scale(1.04);
+}
+
+.social-link:hover {
+  opacity: 0.72;
+  transform: translateY(-4px);
+}
+
+.contact-item-link:hover {
+  text-decoration: underline;
+}
+
+.reveal.is-visible .progress-fill {
+  width: var(--progress-width);
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

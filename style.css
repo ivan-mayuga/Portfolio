@@ -210,8 +210,19 @@ html {
   pointer-events: none;
 }
 
-.overlay-1 { top: -30px; left: 1px; width: 240px; height: 80px; }
-.overlay-2 { bottom: -30px; right: -20px; width: 380px; height: 80px; }
+.overlay-1 {
+  top: -30px;
+  left: 1px;
+  width: 240px;
+  height: 80px;
+}
+
+.overlay-2 {
+  bottom: -30px;
+  right: -20px;
+  width: 380px;
+  height: 80px;
+}
 
 .subtitle {
   font-size: 1.2rem;
@@ -297,6 +308,34 @@ html {
   width: 100%;
 }
 
+.about-header-card {
+  background-color: #cdc1ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px 20px 40px;
+  border-radius: 0 45px 0 0;
+  width: 100%;
+}
+
+.about-header-filler {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  color: #222;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.about-header-filler span {
+  display: inline-block;
+}
+
 .nav-brand {
   display: flex;
   align-items: center;
@@ -359,7 +398,7 @@ html {
   color: #1a1a1a;
   padding: 25px;
   border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .profile-card {
@@ -437,6 +476,10 @@ html {
 
 .about-card p {
   overflow-wrap: anywhere;
+}
+
+.about-copy + .about-copy {
+  margin-top: 1rem;
 }
 
 .education-philosophy-card {
@@ -571,6 +614,7 @@ html {
 }
 
 .progress-fill {
+  width: var(--progress-width, 0%);
   height: 100%;
   background-color: #3e3f59;
   border-radius: 20px;
@@ -609,11 +653,19 @@ html {
   transform: translateY(-3px);
 }
 
-.card, .profile-card, .education-philosophy-card, .software-skills-combined-card, .contact-card {
+.card,
+.profile-card,
+.education-philosophy-card,
+.software-skills-combined-card,
+.contact-card {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.card:hover, .profile-card:hover, .education-philosophy-card:hover, .software-skills-combined-card:hover, .contact-card:hover {
+.card:hover,
+.profile-card:hover,
+.education-philosophy-card:hover,
+.software-skills-combined-card:hover,
+.contact-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -1065,6 +1117,7 @@ a.contact-value:hover {
 
 /* --- Tablet landscape (max 1024px) --- */
 @media (max-width: 1024px) {
+
   .hero-section,
   .skills-section,
   .projects-section,
@@ -1129,6 +1182,7 @@ a.contact-value:hover {
 
 /* --- Tablet portrait (max 768px) --- */
 @media (max-width: 768px) {
+
   /* Navbar */
   .navbar {
     gap: 1rem;
@@ -1207,7 +1261,8 @@ a.contact-value:hover {
     grid-row: auto;
   }
 
-  .navbar-inner {
+  .navbar-inner,
+  .about-header-card {
     flex-direction: column;
     gap: 12px;
     border-radius: 0 30px 0 0;
@@ -1215,7 +1270,8 @@ a.contact-value:hover {
     text-align: center;
   }
 
-  .nav-links {
+  .nav-links,
+  .about-header-filler {
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
@@ -1351,6 +1407,7 @@ a.contact-value:hover {
 
 /* --- Mobile (max 480px) --- */
 @media (max-width: 480px) {
+
   /* Navbar */
   .navbar {
     /*
@@ -1443,7 +1500,8 @@ a.contact-value:hover {
   */
   .name-overlay {
     font-size: 10px;
-    bottom: 90px; /* Increased distance from bottom for more space */
+    bottom: 90px;
+    /* Increased distance from bottom for more space */
     white-space: normal;
     text-align: center;
     width: 80%;
@@ -1454,7 +1512,8 @@ a.contact-value:hover {
   .tag-container {
     width: calc(100% - 1.5rem);
     flex-direction: column;
-    bottom: 15px; /* Lower the tag container to create more separation */
+    bottom: 15px;
+    /* Lower the tag container to create more separation */
   }
 
   .tag {
